@@ -4,7 +4,8 @@
 
 class MainData {
   String state;
-  SubInfo subInfo;
+  Ingredients ingredients;
+  Steps steps;
   String name;
   String description;
   int id;
@@ -14,7 +15,8 @@ class MainData {
 
   MainData({
     this.state,
-    this.subInfo,
+    this.ingredients,
+    this.steps,
     this.description,
     this.id,
     this.imageLink,
@@ -25,8 +27,9 @@ class MainData {
 
   factory MainData.fromJson(Map<String, dynamic> json) {
     return new MainData(
-      state: json['country'],
-      subInfo: SubInfo.fromJson(json['subInfo']),
+      state: json['state'],
+      ingredients: Ingredients.fromJson(json['ingredients']),
+      steps: Steps.fromJson(json['steps']),
       description: json['description'],
       id: json['id'],
       imageLink: json['imageLink'],
@@ -36,15 +39,31 @@ class MainData {
   }
 }
 
-class SubInfo {
+class Ingredients {
+  String ingre1;
+  String ingre2;
+  String ingre3;
+
+  Ingredients({this.ingre1, this.ingre2, this.ingre3});
+
+  factory Ingredients.fromJson(Map<String, dynamic> json) {
+    return new Ingredients(
+      ingre1: json['ingredient_1'],
+      ingre2: json['ingredient_2'],
+      ingre3: json['ingredient_3'],
+    );
+  }
+}
+
+class Steps {
   String step1;
   String step2;
   String step3;
 
-  SubInfo({this.step1, this.step2, this.step3});
+  Steps({this.step1, this.step2, this.step3});
 
-  factory SubInfo.fromJson(Map<String, dynamic> json) {
-    return new SubInfo(
+  factory Steps.fromJson(Map<String, dynamic> json) {
+    return new Steps(
       step1: json['step_1'],
       step2: json['step_2'],
       step3: json['step_3'],

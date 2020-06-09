@@ -16,7 +16,7 @@ class BottomNav extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 8),
       height: query.size.height * 0.14,
       decoration: BoxDecoration(
-        color: Colors.amber.withOpacity(.13),
+        color: Colors.amber.withOpacity(.05),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
       ),
       child: Row(
@@ -30,17 +30,17 @@ class BottomNav extends StatelessWidget {
           ),
           NavBarMenu(
             img: 'assets/images/chef.png',
-            title: 'Meals',
+            title: 'Recipe',
             press: () {},
           ),
           NavBarMenu(
             img: 'assets/images/cooking.png',
-            title: 'How To',
+            title: 'Methods',
             press: () {},
           ),
           NavBarMenu(
-            img: 'assets/images/tableware.png',
-            title: 'Faq',
+            img: 'assets/images/heart.png',
+            title: 'Favorites',
             press: () {},
           ),
         ],
@@ -70,7 +70,6 @@ class NavBarMenu extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Image.asset(img,
-              //COLOR BELOW CAN BE USED TO CHANGE THE COLOR OF THE IMAGE ASSET
               //BY UNCOMMENTING IT, ActiveStateColor CAN BE FOUND IN CONSTANTS.DART
               /*color: isActive ? ActiveStateColor : Color(0xff000000)*/),
           Text(

@@ -1,4 +1,5 @@
 import 'package:cookapp/screens/first_screen.dart';
+import 'package:cookapp/screens/second_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_splash/custom_splash.dart';
@@ -8,7 +9,7 @@ void main() => runApp(MaterialApp(
   home: CustomSplash(
     imagePath: 'assets/images/logo.png',
     backGroundColor: Color(0xffffffff),
-    animationEffect: 'fade-in',
+    animationEffect: 'zoom-out',
     logoSize: 200,
     home: CookApp(),
     duration: 5000,
@@ -32,7 +33,7 @@ class _CookAppState extends State<CookApp> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: FirstScreen()
+      body: SecondScreen()
     );
   }
 }
