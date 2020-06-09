@@ -36,12 +36,34 @@ class _FirstScreenState extends State<FirstScreen> {
       bottomNavigationBar: BottomNav(),
       body: Column(
         children: <Widget>[
-          Container(     //To be wrapped with future builder later
-            height: query.size.height * 0.45,
+          ClipPath(
+            clipper: MainClipper(),
+            child: Container(     //To be wrapped with future builder later
+              height: query.size.height * 0.45,
+              color: Colors.amber,
 
+            ),
           ),
         ],
       ),
     );
+  }
+}
+
+class MainClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, size.height - 80);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 78);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+   return false;
   }
 }

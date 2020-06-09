@@ -1,10 +1,23 @@
 import 'package:cookapp/screens/first_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:custom_splash/custom_splash.dart';
 
 
 void main() => runApp(MaterialApp(
-  home: CookApp(),
+  home: CustomSplash(
+    imagePath: 'assets/images/logo.png',
+    backGroundColor: Color(0xffffffff),
+    animationEffect: 'fade-in',
+    logoSize: 200,
+    home: CookApp(),
+    duration: 5000,
+    type: CustomSplashType.StaticDuration,
+  ),
+  theme: ThemeData(
+    fontFamily: 'Nunito'
+  ),
+
   debugShowCheckedModeBanner: false,
 ));
 

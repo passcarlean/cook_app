@@ -14,7 +14,7 @@ class BottomNav extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 8),
-      height: query.size.height * 0.12,
+      height: query.size.height * 0.14,
       decoration: BoxDecoration(
         color: Colors.amber.withOpacity(.13),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
