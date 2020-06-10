@@ -18,19 +18,21 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   //COMMENTED OUT THIS BLOCK OF CODE AS I AWAIT OUR JSON DATA TO BE READY
 
-  Future<dynamic> fetchInfo() async {
+  Future<List<MainData>> fetchInfo() async {
       var apiUrl = 'https://hngi.github.io/Team-Fierce-JSON/recipes.json'; //Json url goes here
       var result = await http.get(apiUrl);
+      var usersJson = json.decode(result.body);
 
-      var users = List<MainData>();
+      List<MainData> mainData = [];
 
-      if (result.statusCode == 200) {
-        var usersJson = json.decode(result.body);
-        for (var user in usersJson) {
-          users.add(MainData.fromJson(user));
-        }
+      for (var user in usersJson) {
+        MainData recipe = MainData(user['state'],
+            user['name'], user['id'], user['description'],
+            user['ingredients'], user['imageLink'], user['videoLink'],
+            user['steps']);
+        mainData.add(recipe);
       }
-      return users;
+      return mainData;
     }
 
   @override
@@ -61,20 +63,11 @@ class _FirstScreenState extends State<FirstScreen> {
           child: FutureBuilder(
             future: fetchInfo(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot != null) {
+              if (snapshot.data != null) {
                 return ListView.builder(
                   itemBuilder: (context, index) {
-                    return Card(
-                      child: InkWell(
-                        onTap: () {},
-                        child: Column(
-                          children: <Widget>[
-                            Image.asset('assets/images/Egusi.jpg'),
-                            Container(
-                            ),
-                          ],
-                        ),
-                      ),
+                    return ListTile(
+                      title: Text(snapshot.data[index].name),
                     );
                   },
                   itemCount: snapshot.data == null ? 0 : snapshot.data.length,
@@ -87,7 +80,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         CircularProgressIndicator(
-                          backgroundColor: Colors.green,
+                          backgroundColor: Colors.amber,
                         ),
                         SizedBox(height: 8.0),
                         Text(
@@ -107,20 +100,3 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 }
 
-class MainClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height - 80);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 78);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-   return false;
-  }
-}
