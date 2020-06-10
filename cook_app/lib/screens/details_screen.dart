@@ -15,63 +15,61 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     final query = MediaQuery.of(context);
     
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Full Details',
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 22,
-          ),),
-          centerTitle: true,
-          backgroundColor: Color(0xffe67e22).withOpacity(.8),
-        ),
-        resizeToAvoidBottomPadding: true,
-        bottomNavigationBar: BottomNav(),
-        body: Column(
-          children: <Widget>[
-            Container(
-              height: query.size.height * 0.4,
-              decoration: BoxDecoration(
-                color: Colors.amber,
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Full Details',
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 22,
+        ),),
+        centerTitle: true,
+        backgroundColor: Color(0xffe67e22).withOpacity(.8),
+      ),
+      resizeToAvoidBottomPadding: true,
+      bottomNavigationBar: BottomNav(),
+      body: Column(
+        children: <Widget>[
+          Container(
+            height: query.size.height * 0.4,
+            decoration: BoxDecoration(
+              color: Colors.amber,
             ),
-            SizedBox(height: 1.0),
-            Container(
-              height: query.size.height * 0.34,
-              decoration: BoxDecoration(
-              ),
-              child: ListView(
-                physics: AlwaysScrollableScrollPhysics(),
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: 2.0, bottom: 2.0),
-                    child: Column(
-                      children: <Widget>[
-                        Details(
-                          title: 'Description',
-                          description: 'Test description text',
-                        ),
-                        SizedBox(height: 4.0),
-                        Details(
-                          title: 'Ingredients',
-                          description: 'Test ingredient text',
-                        ),
-                        SizedBox(height: 4.0),
-                        Details(
-                          title: 'Cooking Method',
-                          description: 'Test how to cook text',
-                        ),
-                        SizedBox(height: 3.0),
-                      ],
-                    ),
+          ),
+          SizedBox(height: 1.0),
+          Container(
+            height: query.size.height * 0.34,
+            decoration: BoxDecoration(
+            ),
+            child: ListView(
+              physics: AlwaysScrollableScrollPhysics(),
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 2.0, bottom: 2.0),
+                  child: Column(
+                    children: <Widget>[
+                      Details(
+                        title: 'Description',
+                        description: 'Test description text',
+                      ),
+                      SizedBox(height: 4.0),
+                      Details(
+                        title: 'Ingredients',
+                        description: 'Test ingredient text',
+                      ),
+                      SizedBox(height: 4.0),
+                      Details(
+                        title: 'Cooking Method',
+                        description: 'Test how to cook text',
+                      ),
+                      SizedBox(height: 3.0),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: 1,)
-          ],
-        ),
+          ),
+          SizedBox(height: 1,)
+        ],
       ),
     );
   }
