@@ -1,6 +1,4 @@
 import 'package:cookapp/screens/details_screen.dart';
-import 'package:cookapp/screens/first_screen.dart';
-import 'package:cookapp/screens/second_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_splash/custom_splash.dart';
@@ -34,7 +32,7 @@ class _CookAppState extends State<CookApp> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: FirstScreen()
+      body: DetailsScreen()
     );
   }
 }

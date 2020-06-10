@@ -20,8 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.12.1
-  flutter_youtube: ^2.0.0
-  flutube: ^0.8.3
+  youtube_parser: ^1.1.0
   custom_splash:
 
 
