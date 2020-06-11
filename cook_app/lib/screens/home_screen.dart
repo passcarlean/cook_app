@@ -80,16 +80,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: <Widget>[
                                 Text('iCook',
                                     style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w800,
-                                      color: Colors.white
-                                    )),
-                                    Text('Cooking Never Been This Exciting',
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w800,
+                                        color: Colors.white)),
+                                Text('Cooking Never Been This Exciting',
                                     style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white
-                                    )),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white)),
                               ],
                             ),
                           ),
@@ -108,22 +106,58 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.orange)),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0, top: 5.0),
+                padding: const EdgeInsets.only(
+                    left: 10.0, right: 10.0, bottom: 5.0, top: 5.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    OvalImages(
-                      query: query,
-                      png: 'assets/images/Egusi.jpg',
+                    Column(
+                      children: <Widget>[
+                        OvalImages(
+                          query: query,
+                          png:
+                              'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843527/akara.jpg',
+                        ),
+                        SizedBox(height: 4),
+                        Text('Fries',
+                            style: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
+                      ],
                     ),
-                    OvalImages(
-                      query: query,
-                      png: 'assets/images/Egusi.jpg',
+                    Column(
+                      children: <Widget>[
+                        OvalImages(
+                          query: query,
+                          png:
+                              'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591846312/BBQ-Chicken-Wings.jpg',
+                        ),
+                        SizedBox(height: 4),
+                        Text('Meat',
+                            style: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
+                      ],
                     ),
-                    OvalImages(
-                      query: query,
-                      png: 'assets/images/Egusi.jpg',
+                    Column(
+                      children: <Widget>[
+                        OvalImages(
+
+                          query: query,
+                          png:
+                              'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591846327/african-salad.jpg',
+                        ),
+                        SizedBox(height: 4),
+                        Text('Specials',
+                            style: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
+                      ],
                     ),
+                    
                   ],
                 ),
               ),
@@ -149,8 +183,58 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: <Widget>[
                           FoodCard(
                             query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
+                            title: 'Owo Soup',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843588/owo-soup.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Ofe Nsala',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843585/ofe-nsala.png',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Okro Soup',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843582/okro-soup.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Efo Riro Soup',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843589/Efo-Riro.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Onugbu Soup',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843599/onugbu-soup.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Oha Soup',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843588/oha-soup.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Banga Soup',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843566/bang-her-soup.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(
+                            query: query,
+                            title: 'Ofada Sauce',
+                            img:
+                                'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843581/Ofada-Sauce.jpg',
                           ),
                           SizedBox(width: 10),
                           FoodCard(
@@ -161,50 +245,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           SizedBox(width: 10),
                           FoodCard(
                             query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
+                            title: 'Tomatoes Stew',
+                            img: 'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843575/tomato-stew.jpg',
                           ),
                         ],
                       ),
@@ -239,7 +281,7 @@ class OvalImages extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.amberAccent,
           image: DecorationImage(
-            image: AssetImage(png),
+            image: NetworkImage(png),
             fit: BoxFit.cover,
           ),
         ),
@@ -284,7 +326,7 @@ class FoodCard extends StatelessWidget {
         color: Color(0xFFF3B732),
         borderRadius: BorderRadius.circular(15),
         image: DecorationImage(
-          image: AssetImage(img),
+          image: NetworkImage(img),
           fit: BoxFit.cover,
         ),
       ),

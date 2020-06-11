@@ -6,6 +6,7 @@ import 'package:cookapp/navigation/bottomnav.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:transparent_image/transparent_image.dart';
 
 class FirstScreen extends StatefulWidget {
   FirstScreen({Key key}) : super(key: key);
@@ -40,7 +41,6 @@ class _FirstScreenState extends State<FirstScreen> {
     }
     return mainData;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -82,77 +82,76 @@ class _FirstScreenState extends State<FirstScreen> {
                         Column(
                           children: <Widget>[
                             Container(
-                              padding: EdgeInsets.only(top: 100),
                               height: query.size.height * 0.3,
                               width: query.size.width,
                               decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              child: Positioned(
-                                child: Container(
-                                  padding: EdgeInsets.only(
-                                      left: 10, right: 20, bottom: 10, top: 10),
-                                  height: 200,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(.25),
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(25),
-                                        topLeft: Radius.circular(25)),
-                                  ),
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => DetailsScreen(
-                                                snapshot.data[index])),
-                                      );
-                                    },
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.end,
+                                  borderRadius: BorderRadius.circular(25.0)),
+                              child: FadeInImage.memoryNetwork(
+                                placeholder: kTransparentImage,
+                                image: snapshot.data[index].imageLink,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.amber.withOpacity(.25),
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(25),
+                                    bottomLeft: Radius.circular(25)),
+                              ),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailsScreen(
+                                            snapshot.data[index])),
+                                  );
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
+                                        Text(
+                                          snapshot.data[index].name,
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w800,
+                                              color: Colors.black),
+                                        ),
                                         Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                              MainAxisAlignment.spaceEvenly,
                                           children: <Widget>[
                                             Text(
-                                              snapshot.data[index].name,
+                                              'More Details',
                                               style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800,
-                                                  color: Colors.black),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w800,
+                                              ),
                                             ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: <Widget>[
-                                                Text(
-                                                  'More Details',
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                    fontWeight: FontWeight.w800,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 3),
-                                                Icon(Icons.arrow_forward_ios),
-                                              ],
-                                            ),
+                                            SizedBox(width: 3),
+                                            Icon(Icons.arrow_forward_ios),
                                           ],
-                                        ),
-                                        Text(
-                                          snapshot.data[index].description,
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w700,
-                                          ),
                                         ),
                                       ],
                                     ),
-                                  ),
+                                    Text(
+                                      snapshot.data[index].description,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -219,8 +218,7 @@ class DetailsScreen extends StatelessWidget {
               Icons.favorite_border,
               color: Colors.black,
             ),
-            onPressed: () {
-            },
+            onPressed: () {},
           )
         ],
         elevation: 5,
@@ -240,8 +238,14 @@ class DetailsScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             height: query.size.height * 0.4,
+            width: query.size.width,
             decoration: BoxDecoration(
               color: Colors.amber,
+            ),
+            child: FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage,
+              image: data.imageLink,
+              fit: BoxFit.cover,
             ),
           ),
           SizedBox(height: 1.0),
@@ -261,13 +265,13 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 4.0),
                       Details(
-                        title: 'Cooking Method',
-                        description: data.steps,
+                        title: 'Ingredients',
+                        description: data.ingredients,
                       ),
                       SizedBox(height: 4.0),
                       Details(
-                        title: 'Ingredients',
-                        description: data.ingredients,
+                        title: 'Cooking Method',
+                        description: data.steps,
                       ),
                       SizedBox(height: 3.0),
                     ],

@@ -17,17 +17,6 @@ class _FavouritesState extends State<Favourites> {
     );
   }
 
-  Widget _mainBody() {
-  return ListView.builder(
-      padding: const EdgeInsets.all(16.0),
-      itemBuilder: /*1*/ (context, i) {
-        if (i.isOdd) return Divider(); 
-
-        final index = i ~/ 2;
-
-        return _buildRow();
-      });
-}
 
   Widget _buildRow() {
   return ListTile();

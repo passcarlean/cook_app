@@ -20,8 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.12.1
-  youtube_parser: ^1.1.0
-  english_words: ^3.1.0 
+  transparent_image: ^1.0.0
   custom_splash:
 
 

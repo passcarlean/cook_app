@@ -1,4 +1,4 @@
-import 'package:cookapp/screens/first_screen.dart';
+
 import 'package:cookapp/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
