@@ -3,24 +3,24 @@
 
 
 class MainData {
+  String id;
   String state;
-  Ingredients ingredients;
-  Steps steps;
   String name;
   String description;
-  int id;
+  String ingredients;
+  String steps;
   String imageLink;
   String videoLink;
 
 
   MainData(
+    this.id,
     this.state,
+    this.name,
+    this.description,
     this.ingredients,
     this.steps,
-    this.description,
-    this.id,
     this.imageLink,
-    this.name,
     this.videoLink,
 
   );

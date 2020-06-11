@@ -1,4 +1,5 @@
 import 'package:cookapp/screens/details_screen.dart';
+import 'package:cookapp/screens/first_screen.dart';
 import 'package:cookapp/screens/home_screen.dart';
 import 'package:cookapp/screens/second_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,7 +35,7 @@ class _CookAppState extends State<CookApp> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: HomeScreen()
+      body: FirstScreen()
     );
   }
 }

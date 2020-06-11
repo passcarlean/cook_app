@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
+                padding: const EdgeInsets.only(left: 15.0, bottom: 5.0),
                 child: Text('Tasty Buds',
                     style: TextStyle(
                         fontSize: 22,
@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.orange)),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0, top: 5.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.only(left: 9.0),
+                padding: const EdgeInsets.only(left: 15.0),
                 child: Text('Most Popular Soups',
                     style: TextStyle(
                         fontSize: 22,
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 8),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: Container(
                   height: query.size.height * 0.43,
                   child: ListView(

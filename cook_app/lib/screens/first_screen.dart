@@ -6,8 +6,6 @@ import 'package:cookapp/navigation/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
-
 class FirstScreen extends StatefulWidget {
   FirstScreen({Key key}) : super(key: key);
 
@@ -19,21 +17,28 @@ class _FirstScreenState extends State<FirstScreen> {
   //COMMENTED OUT THIS BLOCK OF CODE AS I AWAIT OUR JSON DATA TO BE READY
 
   Future<List<MainData>> fetchInfo() async {
-      var apiUrl = 'https://hngi.github.io/Team-Fierce-JSON/recipes.json'; //Json url goes here
-      var result = await http.get(apiUrl);
-      var usersJson = json.decode(result.body);
+    var apiUrl =
+        'https://hngi.github.io/Team-Fierce-JSON/simplestruc.json'; //Json url goes here
+    var result = await http.get(apiUrl);
+    var usersJson = json.decode(result.body);
 
-      List<MainData> mainData = [];
+    List<MainData> mainData = [];
 
-      for (var user in usersJson) {
-        MainData recipe = MainData(user['state'],
-            user['name'], user['id'], user['description'],
-            user['ingredients'], user['imageLink'], user['videoLink'],
-            user['steps']);
-        mainData.add(recipe);
-      }
-      return mainData;
+    for (var user in usersJson) {
+      MainData recipe = MainData(
+        user['id'],
+        user['state'],
+        user['name'],
+        user['description'],
+        user['ingredients'],
+        user['steps'],
+        user['imageLink'],
+        user['videoLink'],
+      );
+      mainData.add(recipe);
     }
+    return mainData;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,42 +66,58 @@ class _FirstScreenState extends State<FirstScreen> {
       bottomNavigationBar: BottomNav(),
       body: Container(
           child: FutureBuilder(
-            future: fetchInfo(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot.data != null) {
-                return ListView.builder(
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(snapshot.data[index].name),
-                    );
-                  },
-                  itemCount: snapshot.data == null ? 0 : snapshot.data.length,
-                );
-              } else {
-                return Center(
-                  child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        CircularProgressIndicator(
-                          backgroundColor: Colors.amber,
-                        ),
-                        SizedBox(height: 8.0),
-                        Text(
-                          'Loading Data...',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
+        future: fetchInfo(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.data != null) {
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                      left: 10.0, right: 10.0, top: 10.0, bottom: 5.0),
+                  child: SingleChildScrollView(
+                    child: Container(
+                      decoration:
+                          BoxDecoration(color: Colors.amber.withOpacity(.02)),
+                      child: Container(
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Image.network(snapshot.data[index].imageLink),
+                              Text(snapshot.data[index].name),
+                              Text(snapshot.data[index].state),
+                            ],
+                          )),
                     ),
                   ),
                 );
-              }
-            },
-          )),
+              },
+              itemCount: snapshot.data == null ? 0 : snapshot.data.length,
+            );
+          } else {
+            return Center(
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CircularProgressIndicator(
+                      backgroundColor: Colors.amber,
+                    ),
+                    SizedBox(height: 8.0),
+                    Text(
+                      'Loading Data...',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        },
+      )),
     );
   }
 }
-
