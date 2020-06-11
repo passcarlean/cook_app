@@ -34,7 +34,7 @@ class _CookAppState extends State<CookApp> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: SecondScreen()
+      body: HomeScreen()
     );
   }
 }

@@ -34,16 +34,10 @@ class BottomNav extends StatelessWidget {
           ),
           NavBarMenu(
             img: 'assets/images/chef.png',
-            title: 'Recipe',
+            title: 'Methods',
             press: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));},
           ),
-          NavBarMenu(
-            img: 'assets/images/cooking.png',
-            title: 'Methods',
-            press: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-            },
-          ),
+        
           NavBarMenu(
             img: 'assets/images/heart.png',
             title: 'Favorites',
