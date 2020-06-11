@@ -11,170 +11,182 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text('Are you sure?',
+        style: TextStyle(
+          fontWeight: FontWeight.w500
+        ),),
+        content: new Text('Do you want to exit iCook App',
+          style: TextStyle(
+              fontWeight: FontWeight.w400
+          ),),
+        actions: <Widget>[
+          new FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: new Text('No'),
+          ),
+          new FlatButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: new Text('Yes'),
+          ),
+        ],
+      ),
+    )) ?? false;
+  }
+
   @override
   Widget build(BuildContext context) {
     final query = MediaQuery.of(context);
 
-    return SafeArea(
-      child: Container(
-        height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            stops: [0.1, 0.5, 0.7],
-            colors: [
-              Colors.amber.withOpacity(.7),
-              Colors.amber.withOpacity(.5),
-              Colors.amber.withOpacity(.01),
-            ],
-          ),
-        ),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          bottomNavigationBar: BottomNav(),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0, left: 12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(height: 5),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.white.withOpacity(.5),
-                      border: Border.all(
-                        color: Colors.amber.withOpacity(.35),
-                        width: 0.1,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text('iCook',
-                              style: TextStyle (
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.black,
-                              )
-                          ),
-                          Text('Cooking Never Been More Fun',
-                              style: TextStyle (
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.black,
-                              )),
-                        ],
-                      ),
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        bottomNavigationBar: BottomNav(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 8.0, left: 12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 5),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.amber.withOpacity(.05),
+                    border: Border.all(
+                      color: Colors.amber.withOpacity(.55),
+                      width: 0.1,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      OvalImages(query: query,
-                        png: 'assets/images/Egusi.jpg',),
-                      OvalImages(query: query,
-                        png: 'assets/images/Egusi.jpg',),
-                      OvalImages(query: query,
-                        png: 'assets/images/Egusi.jpg',),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      OvalImages(query: query,
-                        png: 'assets/images/Egusi.jpg',),
-                      OvalImages(query: query,
-                        png: 'assets/images/Egusi.jpg',),
-                      OvalImages(query: query,
-                        png: 'assets/images/Egusi.jpg',),
-                    ],
-                  ),
-
-                  SizedBox(height: 30),
-                  Text('Most Popular Soups',
-                      style: TextStyle (
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                      )
-                  ),
-                  SizedBox(height: 8),
-                  Container(
-                    height: query.size.height * 0.43,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            FoodCard(query: query,
-                            title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                            SizedBox(width: 10),
-                            FoodCard(query: query,
-                              title: 'Melon Soup',
-                              img: 'assets/images/Egusi.jpg',
-                            ),
-                          ],
+                        Text('iCook',
+                            style: TextStyle (
+                              fontSize: 30,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black,
+                            )
                         ),
+                        Text('Cooking Never Been More Fun',
+                            style: TextStyle (
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black,
+                            )),
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    OvalImages(query: query,
+                      png: 'assets/images/Egusi.jpg',),
+                    OvalImages(query: query,
+                      png: 'assets/images/Egusi.jpg',),
+                    OvalImages(query: query,
+                      png: 'assets/images/Egusi.jpg',),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    OvalImages(query: query,
+                      png: 'assets/images/Egusi.jpg',),
+                    OvalImages(query: query,
+                      png: 'assets/images/Egusi.jpg',),
+                    OvalImages(query: query,
+                      png: 'assets/images/Egusi.jpg',),
+                  ],
+                ),
+
+                SizedBox(height: 30),
+                Text('Most Popular Soups',
+                    style: TextStyle (
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                    )
+                ),
+                SizedBox(height: 8),
+                Container(
+                  height: query.size.height * 0.43,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          FoodCard(query: query,
+                          title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                          SizedBox(width: 10),
+                          FoodCard(query: query,
+                            title: 'Melon Soup',
+                            img: 'assets/images/Egusi.jpg',
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
       ),
     );
   }
+
 }
 
 class OvalImages extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:cookapp/navigation/bottomnav.dart';
+import 'package:cookapp/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,6 +18,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
     
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          onTap: () {
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black54,
+          ),
+        ),
         title: Text('Full Details',
         style: TextStyle(
           fontWeight: FontWeight.w700,

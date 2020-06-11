@@ -1,4 +1,5 @@
 import 'package:cookapp/navigation/bottomnav.dart';
+import 'package:cookapp/screens/details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,11 +28,11 @@ class _SecondScreenState extends State<SecondScreen> {
                   fit: BoxFit.cover,
                   ),
                   Positioned(
-                    top: 430,
+                    top: 400,
                     child: Container(
                       padding: EdgeInsets.all(15),
-                      height: query.size.height * 0.30,
-                      width: double.infinity,
+                      height: query.size.height * 0.50,
+                      width: query.size.width,
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(.70),
                         borderRadius: BorderRadius.only(
@@ -62,7 +63,9 @@ class _SecondScreenState extends State<SecondScreen> {
                                 ),)),
                           SizedBox(height: 10),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DetailsScreen()));
+                            },
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -85,7 +88,9 @@ class _SecondScreenState extends State<SecondScreen> {
                     top: 50,
                     left: 20,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
                       child: ClipOval(
                         child: Container(
                           height: 50,

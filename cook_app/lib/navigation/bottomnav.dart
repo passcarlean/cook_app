@@ -1,4 +1,6 @@
 import 'package:cookapp/screens/constants.dart';
+import 'package:cookapp/screens/favourites.dart';
+import 'package:cookapp/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,22 +28,28 @@ class BottomNav extends StatelessWidget {
             img: 'assets/images/chefhat.png',
             title: 'Home',
             //isActive: true,
-            press: () {},
+            press: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
           ),
           NavBarMenu(
             img: 'assets/images/chef.png',
             title: 'Recipe',
-            press: () {},
+            press: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));},
           ),
           NavBarMenu(
             img: 'assets/images/cooking.png',
             title: 'Methods',
-            press: () {},
+            press: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
           ),
           NavBarMenu(
             img: 'assets/images/heart.png',
             title: 'Favorites',
-            press: () {},
+            press: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Favourites()));
+            },
           ),
         ],
       ),
