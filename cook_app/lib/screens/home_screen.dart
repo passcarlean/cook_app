@@ -239,12 +239,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           SizedBox(width: 10),
                           FoodCard(
                             query: query,
-                            title: 'Melon Soup',
-                            img: 'assets/images/Egusi.jpg',
-                          ),
-                          SizedBox(width: 10),
-                          FoodCard(
-                            query: query,
                             title: 'Tomatoes Stew',
                             img: 'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843575/tomato-stew.jpg',
                           ),
