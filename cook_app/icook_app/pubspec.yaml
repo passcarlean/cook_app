@@ -50,7 +50,9 @@ flutter:
     - assets/images/vegetable.jpg
     - assets/images/icook.png
     - assets/images/efo.jpg
-    - assets/images/plaintain.png
+    - assets/images/egusi.jpg
+    - assets/images/moimoi.jpg
+    - assets/images/ofada.jpg
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

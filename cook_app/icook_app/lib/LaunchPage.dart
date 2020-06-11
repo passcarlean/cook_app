@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icookapp/FadeAnimation.dart';
 import 'package:icookapp/HomePage.dart';
@@ -56,18 +57,21 @@ class _LaunchPageState extends State<LaunchPage> with TickerProviderStateMixin{
                 image: AssetImage('assets/images/icook.png'),
 
 //                fit: BoxFit.fitHeight
-            )
+            ),
+//                shape: BoxShape.rectangle,
+//            color: Colors.black38
+
 
         ),
 
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
+                  begin: Alignment.bottomRight,
                   colors: [
-                    Colors.black.withOpacity(.9),
-                    Colors.black.withOpacity(.8),
-                    Colors.black.withOpacity(.2)
+                    Colors.white.withOpacity(.9),
+                    Colors.white.withOpacity(.8),
+                    Colors.white.withOpacity(.2)
 
                   ]
               )
@@ -79,8 +83,6 @@ class _LaunchPageState extends State<LaunchPage> with TickerProviderStateMixin{
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
 
-                FadeAnimation(.5, Text('Nigerian Meals', style: TextStyle(color:Colors.white, fontSize: 30,  fontWeight: FontWeight.bold),)),
-                SizedBox(height: 20,),
                 FadeAnimation(1.2,
                   ScaleTransition(
                       scale: _animation,
@@ -100,7 +102,7 @@ class _LaunchPageState extends State<LaunchPage> with TickerProviderStateMixin{
                             child: MaterialButton(
                               onPressed: () => _onTap(),
                               minWidth: double.infinity,
-                              child: Text(" Recipes", style: TextStyle(color: Colors.white),),
+                              child: Text(" Nigerian Recipes", style: TextStyle(color: Colors.white),),
                             ),
                           )
                       )),
