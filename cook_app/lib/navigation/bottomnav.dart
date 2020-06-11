@@ -1,5 +1,6 @@
 import 'package:cookapp/screens/constants.dart';
 import 'package:cookapp/screens/favourites.dart';
+import 'package:cookapp/screens/first_screen.dart';
 import 'package:cookapp/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class BottomNav extends StatelessWidget {
           NavBarMenu(
             img: 'assets/images/chef.png',
             title: 'Methods',
-            press: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));},
+            press: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstScreen()));},
           ),
         
           NavBarMenu(

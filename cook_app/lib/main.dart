@@ -1,7 +1,5 @@
-import 'package:cookapp/screens/details_screen.dart';
 import 'package:cookapp/screens/first_screen.dart';
 import 'package:cookapp/screens/home_screen.dart';
-import 'package:cookapp/screens/second_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_splash/custom_splash.dart';
