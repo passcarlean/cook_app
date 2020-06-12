@@ -16,8 +16,8 @@ class BottomNav extends StatelessWidget {
     final query = MediaQuery.of(context);
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 8),
-      height: query.size.height * 0.14,
+      padding: EdgeInsets.fromLTRB(25, 10, 25, 10),
+      height: query.size.height * 0.13,
       decoration: BoxDecoration(
         color: Colors.amber.withOpacity(.05),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
@@ -73,11 +73,13 @@ class NavBarMenu extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Image.asset(img,
+              scale: 1.3,
               //BY UNCOMMENTING IT, ActiveStateColor CAN BE FOUND IN CONSTANTS.DART
               /*color: isActive ? ActiveStateColor : Color(0xff000000)*/),
           Text(
             title,
             style: TextStyle(
+              fontWeight: FontWeight.w700,
                 color: isActive ? ActiveStateColor : Color(0xff000000)),
           ),
         ],

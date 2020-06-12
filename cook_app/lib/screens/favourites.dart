@@ -12,8 +12,14 @@ class Favourites extends StatefulWidget {
 class _FavouritesState extends State<Favourites> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNav(),
+    return WillPopScope(
+      onWillPop: () {
+
+        return;
+      },
+      child: Scaffold(
+        bottomNavigationBar: BottomNav(),
+      ),
     );
   }
 
