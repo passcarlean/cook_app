@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
+import 'package:cookapp/Helpers/DetailsScreen.dart';
 
 class FirstScreen extends StatefulWidget {
   FirstScreen({Key key}) : super(key: key);
@@ -16,7 +17,6 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  //COMMENTED OUT THIS BLOCK OF CODE AS I AWAIT OUR JSON DATA TO BE READY
 
   Future<List<MainData>> fetchInfo() async {
     var apiUrl =
@@ -204,169 +204,7 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 }
 
-class DetailsScreen extends StatelessWidget {
-  final MainData data;
 
-  DetailsScreen(this.data);
 
-  @override
-  Widget build(BuildContext context) {
-    final query = MediaQuery.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.favorite_border,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-          )
-        ],
-        elevation: 5,
-        title: Text(
-          data.name,
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 22,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Color(0xffe67e22).withOpacity(.8),
-      ),
-      resizeToAvoidBottomPadding: true,
-      bottomNavigationBar: BottomNav(),
-      body: Column(
-        children: <Widget>[
-          Container(
-            height: query.size.height * 0.35,
-            width: query.size.width,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-            ),
-            child: FadeInImage.memoryNetwork(
-              placeholder: kTransparentImage,
-              image: data.imageLink,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(height: 1.0),
-          Container(
-            height: query.size.height * 0.34,
-            decoration: BoxDecoration(),
-            child: ListView(
-              physics: AlwaysScrollableScrollPhysics(),
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 2.0, bottom: 2.0),
-                  child: Column(
-                    children: <Widget>[
-                      Details(
-                        title: 'Description',
-                        description: data.description,
-                      ),
-                      SizedBox(height: 4.0),
-                      Details(
-                        title: 'Ingredients',
-                        description: data.ingredients,
-                      ),
-                      SizedBox(height: 4.0),
-                      Details(
-                        title: 'Cooking Method',
-                        description: data.steps,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 1,
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class Details extends StatelessWidget {
-  final String description;
-  final String title;
-
-  const Details({
-    Key key,
-    this.description,
-    this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.amber.withOpacity(.06),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: Colors.amber.withOpacity(.12),
-                  border: Border.all(
-                    color: Colors.amber.withOpacity(.35),
-                    width: 0.1,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Flexible(
-                        child: Text(
-                          title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 17,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 2.0),
-            Row(
-              children: <Widget>[
-                Flexible(
-                  child: Text(
-                    description,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.3,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 

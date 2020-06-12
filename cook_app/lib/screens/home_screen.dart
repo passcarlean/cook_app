@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontSize: 22,
                                         fontWeight: FontWeight.w800,
                                         color: Colors.white)),
-                                Text('Cooking Never Been This Exciting',
+                                Text('Cooking has Never Been This Exciting',
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600,
