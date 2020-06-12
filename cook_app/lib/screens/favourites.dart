@@ -20,10 +20,6 @@ class _FavouritesState extends State<Favourites> {
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
-         leading: InkWell(
-           onTap: () {Navigator.popUntil(context, ModalRoute.withName('/screen1'));},
-           child: Icon(Icons.arrow_back_ios),
-         ),
           actions: <Widget>[
             SizedBox(height: 5.0),
           ],
@@ -46,6 +42,7 @@ class _FavouritesState extends State<Favourites> {
             itemCount: favourites.length,
               itemBuilder: (BuildContext context, int index) {
                return Container(
+                 padding: EdgeInsets.all(15),
                   height: 50,
                child: Text('I love ${favourites[index]}'),
              );}

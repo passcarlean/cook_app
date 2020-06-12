@@ -50,10 +50,6 @@ class _FirstScreenState extends State<FirstScreen> {
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
-          leading: InkWell(
-            onTap: () {Navigator.popUntil(context, ModalRoute.withName('/screen1'));},
-            child: Icon(Icons.arrow_back_ios),
-          ),
           actions: <Widget>[
             SizedBox(height: 5.0),
           ],
