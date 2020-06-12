@@ -1,6 +1,5 @@
 import 'package:cookapp/navigation/bottomnav.dart';
 import 'package:flutter/material.dart';
-import 'package:cookapp/api/model.dart';
 import 'package:cookapp/Helpers/Favstore.dart';
 
 class Favourites extends StatefulWidget {
@@ -20,11 +19,16 @@ class _FavouritesState extends State<Favourites> {
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
-          actions: <Widget>[
-            SizedBox(height: 5.0),
-          ],
-          title: Padding(
-            padding: const EdgeInsets.only(top: 9.0),
+      leading: InkWell(
+      onTap: () {
+      Navigator.pop(context);
+      },
+//          actions: <Widget>[
+//            SizedBox(height: 5.0),
+//          ],
+//          title: Padding(
+//            padding: const EdgeInsets.only(top: 9.0),
+
             child: Text(
               'Favourites',
               style: TextStyle(
@@ -44,7 +48,7 @@ class _FavouritesState extends State<Favourites> {
                return Container(
                  padding: EdgeInsets.all(15),
                   height: 50,
-               child: Text('I love ${favourites[index]}'),
+               child: Text('I love ${favourites[index]} '),
              );}
           ),
       )

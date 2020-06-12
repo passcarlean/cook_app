@@ -2,6 +2,7 @@ import 'package:cookapp/navigation/bottomnav.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
 
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontSize: 22,
                                         fontWeight: FontWeight.w800,
                                         color: Colors.white)),
-                                Text('Cooking has Never Been This Exciting',
+                                Text('Desire meets a new Food',
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600,
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 15.0, bottom: 5.0),
-                child: Text('Tasty Buds',
+                child: Text('Category',
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w800,
@@ -171,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.orange)),
               ),
               SizedBox(height: 8),
+
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Container(
@@ -181,12 +183,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
+
                           FoodCard(
                             query: query,
                             title: 'Owo Soup',
                             img:
                                 'https://res.cloudinary.com/hngi7teamfierce/image/upload/v1591843588/owo-soup.jpg',
-                          ),
+                  ),
+
                           SizedBox(width: 10),
                           FoodCard(
                             query: query,

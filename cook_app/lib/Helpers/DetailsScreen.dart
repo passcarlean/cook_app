@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cookapp/navigation/bottomnav.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -11,9 +10,6 @@ class DetailsScreen extends StatefulWidget {
   final MainData data;
 
   DetailsScreen(this.data);
-
-
-
 
 
   @override
@@ -59,7 +55,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
               color: Colors.black,
             ),
             onPressed: () {
+//              Colors.deepOrange;
               _handleFavouritesList(widget.data.name);
+              _DetailsScreenState();
             },
           )
         ],

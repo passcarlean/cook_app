@@ -3,7 +3,9 @@ import 'package:cookapp/screens/favourites.dart';
 import 'package:cookapp/screens/first_screen.dart';
 import 'package:cookapp/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 
 
 /* this is the bottom navigation block of code and can be reused on any part by
@@ -30,19 +32,26 @@ class BottomNav extends StatelessWidget {
             title: 'Home',
             //isActive: true,
             press: () {
+//              Colors.deepOrange;
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
             },
           ),
+
+
           NavBarMenu(
             img: 'assets/images/chef.png',
             title: 'Methods',
-            press: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstScreen()));},
+            press: () {
+//              Colors.deepOrange;
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstScreen()));
+              },
           ),
         
           NavBarMenu(
             img: 'assets/images/heart.png',
             title: 'Favorites',
             press: () {
+//              Colors.deepOrange;
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Favourites()));
             },
           ),
