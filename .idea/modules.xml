@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Team Fierce.iml" filepath="$PROJECT_DIR$/.idea/Team Fierce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Team-Fierce-Mobile.iml" filepath="$PROJECT_DIR$/Team-Fierce-Mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cook_app/cook_app.iml" filepath="$PROJECT_DIR$/cook_app/cook_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cook_app/android/app/src/debug/debug.iml" filepath="$PROJECT_DIR$/cook_app/android/app/src/debug/debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cook_app/android/app/src/profile/profile.iml" filepath="$PROJECT_DIR$/cook_app/android/app/src/profile/profile.iml" />
     </modules>
   </component>
 </project>
